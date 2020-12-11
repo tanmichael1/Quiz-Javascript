@@ -18,12 +18,12 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame(){
-    resetScore();
     console.log('Started');
     startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
+    resetScore();
     setNextQuestion();
 
 }
@@ -34,6 +34,7 @@ function setNextQuestion(){
 }
 
 function showQuestion(question){
+    console.log(currentScore);
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
         const button = document.createElement('button');
@@ -56,6 +57,7 @@ function showScore(score){
 
 function resetScore(){
     currentScore = 0;
+    scoreElement.innerText = currentScore;
     
 }
 
@@ -102,7 +104,8 @@ function setStatusClassCheck(element, correct){
     clearStatusClass(element);
     if(correct){
         element.classList.add('correct');
-        scoreElement.innerText = currentScore++;
+        currentScore++;
+        scoreElement.innerText = currentScore;
     }
 
     else{
