@@ -5,7 +5,11 @@ const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
+const scoreElement = document.getElementById('score');
+
 let shuffledQuestions, currentQuestionIndex;
+
+let currentScore = 0;
  
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
@@ -14,6 +18,7 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame(){
+    resetScore();
     console.log('Started');
     startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
@@ -36,11 +41,22 @@ function showQuestion(question){
         button.classList.add('btn');
         if(answer.correct){
             button.dataset.correct = answer.correct;
+
         }
         button.addEventListener('click', selectAnswer);
         answerButtonsElement.appendChild(button);
     });
 
+}
+
+function showScore(score){
+
+
+}
+
+function resetScore(){
+    currentScore = 0;
+    
 }
 
 function resetState(){
@@ -49,12 +65,13 @@ function resetState(){
     while(answerButtonsElement.firstChild){
         answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
+    
 }
 
 function selectAnswer(e){
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct;
-    setStatusClass(document.body, correct);
+    setStatusClassCheck(document.body, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     });
@@ -64,6 +81,7 @@ function selectAnswer(e){
     else{
         startButton.innerText = 'Restart';
         startButton.classList.remove('hide');
+        
     }
 }
 
@@ -71,10 +89,25 @@ function setStatusClass(element, correct){
     clearStatusClass(element);
     if(correct){
         element.classList.add('correct');
+        
     }
 
     else{
         element.classList.add('wrong');
+        
+    }
+}
+
+function setStatusClassCheck(element, correct){
+    clearStatusClass(element);
+    if(correct){
+        element.classList.add('correct');
+        scoreElement.innerText = currentScore++;
+    }
+
+    else{
+        element.classList.add('wrong');
+        
     }
 }
 
