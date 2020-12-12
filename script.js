@@ -1,13 +1,22 @@
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
+const resultsButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
+//  const currentQuestionElement = document.getElementById('current-question');
+//  const questionsTotalElement = document.getElementById('questions-total');
+
+const questionsLeftElement = document.getElementById('questions-left');
+
 const scoreElement = document.getElementById('score');
 
 let shuffledQuestions, currentQuestionIndex;
+
+let totalQuestions = 0;
+
 
 let currentScore = 0;
  
@@ -22,6 +31,7 @@ function startGame(){
     startButton.classList.add('hide');
     shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
+    totalQuestions = shuffledQuestions.length;
     questionContainerElement.classList.remove('hide');
     resetScore();
     setNextQuestion();
@@ -35,6 +45,8 @@ function setNextQuestion(){
 
 function showQuestion(question){
     console.log(currentScore);
+
+    questionsLeftElement.innerText = (currentQuestionIndex + 1) + "/" + totalQuestions + " questions";
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
         const button = document.createElement('button');
@@ -90,13 +102,11 @@ function selectAnswer(e){
 function setStatusClass(element, correct){
     clearStatusClass(element);
     if(correct){
-        element.classList.add('correct');
-        
+        element.classList.add('correct');   
     }
 
     else{
         element.classList.add('wrong');
-        
     }
 }
 
