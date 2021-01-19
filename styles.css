@@ -77,7 +77,9 @@ body.wrong {
 }
 
 .question-btn {
-  width: 40%;
+  display: flex;
+  margin-bottom: 0.8rem;
+  width: 100%;
   --hue: var(--hue-neutral);
   border: 1px solid hsl(var(--hue), 100%, 30%);
   background-color: hsl(var(--hue), 100%, 50%);
