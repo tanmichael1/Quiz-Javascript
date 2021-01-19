@@ -65,6 +65,8 @@ body.wrong {
 
 .btn:hover {
   border-color: black;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+  transform: scale(1.03);
 }
 
 .btn.correct {
@@ -102,8 +104,20 @@ body.wrong {
   color: black;
 }
 
+.question-btn.correct:hover {
+  --hue: var(--hue-correct);
+  transform: scale(1);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(11, 184, 26, 0.6);
+}
+
 .question-btn.wrong {
   --hue: var(--hue-wrong);
+}
+
+.question-btn.wrong:hover {
+  --hue: var(--hue-wrong);
+  transform: scale(1);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(189, 23, 23, 0.6);
 }
 
 .start-btn,
