@@ -9,6 +9,12 @@
   --hue-neutral: 200;
   --hue-wrong: 0;
   --hue-correct: 145;
+  background-color: rgb(29, 26, 26);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Nova Square", cursive;
 }
 
 body {
@@ -32,7 +38,7 @@ body.wrong {
 }
 
 .container {
-  width: 800px;
+  width: 100%;
   max-width: 80%;
   background-color: white;
   border-radius: 5px;
@@ -71,13 +77,20 @@ body.wrong {
 }
 
 .start-btn,
+.restart-btn,
 .next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
 }
 
-.controls {
+#initial {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,4 +98,8 @@ body.wrong {
 
 .hide {
   display: none;
+}
+
+#results {
+  float: left;
 }

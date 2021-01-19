@@ -8,8 +8,14 @@
     <script defer src="script.js"></script>
     <title>Quiz App</title>
 </head>
-<body>
-    <div class="container">
+<body> 
+    
+    <div class="container" id="initial">
+        <button id="start-btn" class="start-btn btn">Start</button>
+        
+    </div>
+
+    <div id="mainPage" class="container hide">
         <div id="question-container" class="hide">
             <div id="question">Question</div>
             <div id="answer-buttons" class="btn-grid">
@@ -20,19 +26,26 @@
             </div>
         </div>
         <div class="controls">
-            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="restart-btn" class="restart-btn btn hide">Restart</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
             <button id="results-btn" class="results-btn btn hide">Results</button>
         </div>
         <div>
-            <h2>Score</h2>
-            <h3 id="score">0</h3>
-         
-        </div>
-        <div>
             
             <p id="questions-left"></p>
+         
         </div>
+        <span id="results" class="hide " style="float: left;">
+            <h1 id="results-title" >Results</h1>
+        
+                <span id="score-title" >Score: </span>    
+                
+  <span id="score"></span> 
+           
+           
+            
+            
+        </span>
     </div>
 </body>
 </html>
