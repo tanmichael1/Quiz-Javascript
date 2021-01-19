@@ -76,6 +76,34 @@ body.wrong {
   --hue: var(--hue-wrong);
 }
 
+.question-btn {
+  width: 40%;
+  --hue: var(--hue-neutral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.question-btn:hover {
+  border-color: black;
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+  transition: transform 150ms;
+  transform: scale(1.03);
+}
+
+.question-btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+
+.question-btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
 .start-btn,
 .restart-btn,
 .next-btn {

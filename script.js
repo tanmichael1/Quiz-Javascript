@@ -20,6 +20,7 @@ const questionsLeftElement = document.getElementById('questions-left');
 
 const scoreElement = document.getElementById('score');
 const scoreTitleElement = document.getElementById('score-title');
+const quizTitleElement = document.getElementById('quiz-title');
 
 let shuffledQuestions, currentQuestionIndex;
 
@@ -38,6 +39,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame(){
     console.log('Started');
+    quizTitleElement.classList.add("hide");
     initialPage.classList.add('hide');
     initialPage.classList.remove('container');
     mainPage.classList.remove('hide');
@@ -67,7 +69,7 @@ function showQuestion(question){
     question.answers.forEach(answer => {
         const button = document.createElement('button');
         button.innerText = answer.text;
-        button.classList.add('btn');
+        button.classList.add('question-btn');
         if(answer.correct){
             button.dataset.correct = answer.correct;
 
