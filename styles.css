@@ -2,7 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", "sans-serif";
 }
 
 :root {
@@ -38,7 +38,7 @@ body.wrong {
 }
 
 .container {
-  width: 100%;
+  width: 50%;
 
   max-width: 80%;
   background-color: white;
@@ -83,9 +83,8 @@ body.wrong {
 .question-btn {
   text-align: center;
 
-  display: flex;
   margin-bottom: 0.8rem;
-  width: 80%;
+  width: 100%;
   --hue: var(--hue-neutral);
   border: 1px solid hsl(var(--hue), 100%, 30%);
   background-color: hsl(var(--hue), 100%, 50%);
@@ -93,6 +92,8 @@ body.wrong {
   padding: 5px 10px;
   color: white;
   outline: none;
+  font-size: 200%;
+  font-family: "Poppins", "sans-serif";
 }
 
 .question-btn:hover {
@@ -146,19 +147,16 @@ body.wrong {
 
 #question {
   font-size: 200%;
+
+  font-family: "Poppins", "sans-serif";
 }
 
-.question-container {
-  display: flex;
+#question-container {
   justify-content: center;
   align-items: center;
-  height: 80%;
-  align-items: center;
-  margin-left: 10%;
-}
-
-.question-btn {
-  font-size: 200%;
+  position: relative;
+  display: flex;
+  /*display: flex;*/
 }
 
 #controls {
@@ -171,10 +169,12 @@ body.wrong {
   display: none;
 }
 
-#results {
-  float: left;
+.result {
+  width: 100%;
 }
 
 #title {
-  font-size: 200%;
+  font-weight: bold;
+  font-size: 250%;
+  font-family: "Poppins", "sans-serif";
 }
