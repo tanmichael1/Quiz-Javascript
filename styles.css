@@ -130,19 +130,11 @@ body.wrong {
   box-shadow: 0 0.4rem 1.4rem 0 rgba(189, 23, 23, 0.6);
 }
 
-.start-btn,
 .restart-btn,
 .next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
-}
-
-#initial {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
 }
 
 #question {
@@ -177,4 +169,38 @@ body.wrong {
   font-weight: bold;
   font-size: 250%;
   font-family: "Poppins", "sans-serif";
+}
+
+#title-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  top: 30%;
+}
+
+.initial-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 30%;
+}
+
+.start-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#initial {
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
