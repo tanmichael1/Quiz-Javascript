@@ -4,14 +4,18 @@ const nextButton = document.getElementById('next-btn');
 
 const initialPage = document.getElementById('initial');
 const mainPage = document.getElementById('mainPage');
+const endPage = document.getElementById('end');
 
-//const resultsButton = document.getElementById('results-btn');
+const resultsButton = document.getElementById('results-btn');
+const toEndPageButton = document.getElementById('toEndPage');
 const questionContainerElement = document.getElementById('question-container');
 
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
 const resultsElement = document.getElementById('results');
+
+const finalResults = document.getElementById('new-results');
 
 //  const currentQuestionElement = document.getElementById('current-question');
 //  const questionsTotalElement = document.getElementById('questions-total');
@@ -31,6 +35,8 @@ let currentScore = 0;
  
 startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', startGame);
+resultsButton.addEventListener('click', getResults);
+toEndPageButton.addEventListener('click', returnToEndPage);
 
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
@@ -38,10 +44,12 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame(){
-    console.log('Started');
     quizTitleElement.classList.add("hide");
     initialPage.classList.add('hide');
     initialPage.classList.remove('container');
+    mainPage.classList.add('hide');
+    endPage.classList.add('hide');
+    finalResults.classList.add('hide');
     mainPage.classList.remove('hide');
     startButton.classList.add('hide');
     restartButton.classList.add('hide');
@@ -52,6 +60,22 @@ function startGame(){
     questionContainerElement.classList.remove('hide');
     resetScore();
     setNextQuestion();
+
+}
+
+function getResults(){
+    endPage.classList.add('hide');
+    mainPage.classList.add('hide');
+ 
+    finalResults.classList.remove('hide');
+
+}
+
+function returnToEndPage(){
+    endPage.classList.remove('hide');
+ 
+ 
+    finalResults.classList.add('hide');
 
 }
 
@@ -112,9 +136,13 @@ function selectAnswer(e){
         
     }
     else{
+        mainPage.classList.add('hide');
+        endPage.classList.remove('hide');
         restartButton.innerText = 'Restart';
         restartButton.classList.remove('hide');
         resultsElement.classList.remove('hide');
+        resultsButton.classList.remove('hide');
+   
         
     }
 }
