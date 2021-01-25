@@ -39,8 +39,22 @@ resultsButton.addEventListener('click', getResults);
 toEndPageButton.addEventListener('click', returnToEndPage);
 
 nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    setNextQuestion();
+    console.log("Question index: " + currentQuestionIndex);   
+
+    if(shuffledQuestions.length > currentQuestionIndex){
+        setNextQuestion();
+    }
+    else{
+        mainPage.classList.add('hide');
+        endPage.classList.remove('hide');
+        restartButton.innerText = 'Restart';
+        restartButton.classList.remove('hide');
+        resultsElement.classList.remove('hide');
+        resultsButton.classList.remove('hide');
+   
+        
+    }
+    
 })
 
 function startGame(){
@@ -101,6 +115,7 @@ function showQuestion(question){
         button.addEventListener('click', selectAnswer);
         answerButtonsElement.appendChild(button);
     });
+    currentQuestionIndex++;
 
 }
 
@@ -131,20 +146,13 @@ function selectAnswer(e){
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     });
-    if(shuffledQuestions.length > currentQuestionIndex + 1){
+    
+   
         nextButton.classList.remove('hide');
         
-    }
-    else{
-        mainPage.classList.add('hide');
-        endPage.classList.remove('hide');
-        restartButton.innerText = 'Restart';
-        restartButton.classList.remove('hide');
-        resultsElement.classList.remove('hide');
-        resultsButton.classList.remove('hide');
-   
         
-    }
+    
+    
 }
 
 function setStatusClass(element, correct){

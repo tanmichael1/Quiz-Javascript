@@ -131,10 +131,30 @@ body.wrong {
 }
 
 .restart-btn,
-.next-btn {
+.next-btn,
+.results-btn,
+.toEndPage-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
+}
+
+.initial-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 30%;
+}
+
+.start-btn {
+  font-size: 1.5rem;
+
+  padding: 10px 20px;
+
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 #question {
@@ -148,7 +168,6 @@ body.wrong {
   align-items: center;
   position: relative;
   display: flex;
-  /*display: flex;*/
 }
 
 #controls {
@@ -178,24 +197,6 @@ body.wrong {
   position: relative;
 
   top: 30%;
-}
-
-.initial-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 30%;
-}
-
-.start-btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
-
-  justify-content: center;
-  align-items: center;
-  position: relative;
 }
 
 #initial {
