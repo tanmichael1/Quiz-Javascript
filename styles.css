@@ -106,6 +106,7 @@ body.wrong {
 }
 
 .answer-buttons {
+  width: 100%;
   align-items: center;
   align-content: center;
 }
@@ -242,5 +243,9 @@ body.wrong {
 }
 
 #end {
+  text-align: center;
+}
+
+#mainPage {
   text-align: center;
 }
