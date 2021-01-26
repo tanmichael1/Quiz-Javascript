@@ -38,7 +38,7 @@ let totalScoreTable = document.getElementById("total-score");
 
 
 
-let shuffledQuestions, currentQuestionIndex;
+let currentQuestionIndex;
 
 let totalQuestions = 0;
 
@@ -53,7 +53,7 @@ toEndPageButton.addEventListener('click', returnToEndPage);
 nextButton.addEventListener('click', () => {
     
 
-    if(shuffledQuestions.length > currentQuestionIndex){
+    if(questions.length > currentQuestionIndex){
         setNextQuestion();
     }
     else{
@@ -92,9 +92,8 @@ function startGame(){
     startButton.classList.add('hide');
     restartButton.classList.add('hide');
     resultsElement.classList.add('hide');
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
-    totalQuestions = shuffledQuestions.length;
+    totalQuestions = questions.length;
     questionContainerElement.classList.remove('hide');
     resetScore();
     setNextQuestion();
@@ -120,7 +119,7 @@ function returnToEndPage(){
 function setNextQuestion(){
     scoreTitleElement.classList.remove('hide');
     resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    showQuestion(questions[currentQuestionIndex]);
 }
 
 function showQuestion(question){
