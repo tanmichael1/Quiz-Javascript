@@ -26,6 +26,18 @@ const scoreElement = document.getElementById('score');
 const scoreTitleElement = document.getElementById('score-title');
 const quizTitleElement = document.getElementById('quiz-title');
 
+
+//results
+let totalQuestionsTable = document.getElementById("total-question");
+let totalAttemptsTable = document.getElementById("total-attempt");
+let totalCorrectTable = document.getElementById("total-correct");
+let totalIncorrectTable = document.getElementById("total-incorrect");
+let percentageTable = document.getElementById("percentage");
+let totalScoreTable = document.getElementById("total-score");
+
+
+
+
 let shuffledQuestions, currentQuestionIndex;
 
 let totalQuestions = 0;
@@ -39,7 +51,7 @@ resultsButton.addEventListener('click', getResults);
 toEndPageButton.addEventListener('click', returnToEndPage);
 
 nextButton.addEventListener('click', () => {
-    console.log("Question index: " + currentQuestionIndex);   
+    
 
     if(shuffledQuestions.length > currentQuestionIndex){
         setNextQuestion();
@@ -51,6 +63,18 @@ nextButton.addEventListener('click', () => {
         restartButton.classList.remove('hide');
         resultsElement.classList.remove('hide');
         resultsButton.classList.remove('hide');
+
+        totalQuestionsTable.innerText = totalQuestions;
+        totalAttemptsTable.innerText = totalQuestions;
+        totalCorrectTable.innerText = currentScore;
+        totalIncorrectTable.innerText = totalQuestions - currentScore;
+        percentageTable.innerText = (35.8 / 100);
+        console.log(Number(currentScore).toFixed(2));
+        console.log(Number(totalQuestions).toFixed(2));
+        percentageTable.innerText = Number(Number(currentScore).toFixed(2)/Number(totalQuestions).toFixed(2)).toFixed(2) * 100 + "%";
+        totalScoreTable.innerText = currentScore + "/" + totalQuestions;
+
+
    
         
     }
