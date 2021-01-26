@@ -8,6 +8,7 @@
 :root {
   --hue-neutral: 200;
   --hue-wrong: 0;
+  --hue-mark: 250;
   --hue-correct: 145;
   background-color: rgb(29, 26, 26);
 }
@@ -130,7 +131,12 @@ body.wrong {
   box-shadow: 0 0.4rem 1.4rem 0 rgba(189, 23, 23, 0.6);
 }
 
+.question-btn.marked {
+  --hue: var(--hue-mark);
+}
+
 .restart-btn,
+.check-btn,
 .next-btn,
 .results-btn,
 .toEndPage-btn {

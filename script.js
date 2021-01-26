@@ -1,6 +1,7 @@
 const startButton = document.getElementById('start-btn');
 const restartButton = document.getElementById('restart-btn');
 const nextButton = document.getElementById('next-btn');
+const checkButton = document.getElementById('check-btn');
 
 const initialPage = document.getElementById('initial');
 const mainPage = document.getElementById('mainPage');
@@ -35,12 +36,13 @@ let totalIncorrectTable = document.getElementById("total-incorrect");
 let percentageTable = document.getElementById("percentage");
 let totalScoreTable = document.getElementById("total-score");
 
-
-
-
 let currentQuestionIndex;
+let currentSelectedButton;
 
 let totalQuestions = 0;
+
+let selectedAnswer = false;
+let answeredQuestion = false;
 
 
 let currentScore = 0;
@@ -49,11 +51,15 @@ startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', startGame);
 resultsButton.addEventListener('click', getResults);
 toEndPageButton.addEventListener('click', returnToEndPage);
+checkButton.addEventListener('click', selectAnswer);
 
 nextButton.addEventListener('click', () => {
     
 
     if(questions.length > currentQuestionIndex){
+        selectedAnswer = false;
+        answeredQuestion = false;
+        checkButton.classList.remove('hide');
         setNextQuestion();
     }
     else{
@@ -135,7 +141,8 @@ function showQuestion(question){
             button.dataset.correct = answer.correct;
 
         }
-        button.addEventListener('click', selectAnswer);
+        //button.addEventListener('click', selectAnswer);
+        button.addEventListener('click', markAnswer);
         answerButtonsElement.appendChild(button);
     });
     currentQuestionIndex++;
@@ -162,20 +169,50 @@ function resetState(){
     
 }
 
-function selectAnswer(e){
-    const selectedButton = e.target;
-    const correct = selectedButton.dataset.correct;
+function selectAnswer(){
+    //const selectedButton = e.target;
+    checkButton.classList.add('hide');
+    if(selectedAnswer){
+        currentSelectedButton.classList.remove('marked');
+         const correct = currentSelectedButton.dataset.correct;
     setStatusClassCheck(document.body, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     });
+    answeredQuestion = true;
     
    
         nextButton.classList.remove('hide');
+    }
+   
         
         
     
     
+}
+
+function markAnswer(e){
+    if(!answeredQuestion){
+        const selectedButton = e.target;
+    Array.from(answerButtonsElement.children).forEach(button => {
+        if(selectedButton==button){
+            button.classList.add('marked');
+            currentSelectedButton = selectedButton;
+            selectedAnswer = true;
+
+        }
+
+        else{
+            button.classList.remove('marked');
+        }
+    });
+    }
+    
+
+  
+   
+        
+
 }
 
 function setStatusClass(element, correct){
