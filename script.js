@@ -17,8 +17,6 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const resultsElement = document.getElementById('results');
 
-const questionsLeftElement = document.getElementById('questions-left');
-
 const scoreElement = document.getElementById('score');
 const scoreTitleElement = document.getElementById('score-title');
 const quizTitleElement = document.getElementById('quiz-title');
@@ -122,7 +120,6 @@ function setNextQuestion(){
 
 function showQuestion(question){
     progressText.innerText = "Question " + (currentQuestionIndex + 1) + " of " + totalQuestions;
-    questionsLeftElement.innerText = "Question " + (currentQuestionIndex + 1) + " of " + totalQuestions;
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
         const button = document.createElement('button');
