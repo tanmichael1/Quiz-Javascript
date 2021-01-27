@@ -23,6 +23,9 @@ const scoreElement = document.getElementById('score');
 const scoreTitleElement = document.getElementById('score-title');
 const quizTitleElement = document.getElementById('quiz-title');
 
+const progressText = document.getElementById('progressText');
+
+const progressBarFull = document.getElementById('progressBarFull');
 
 //results
 let totalQuestionsTable = document.getElementById("total-question");
@@ -49,7 +52,8 @@ nextButton.addEventListener('click', () => {
     if(questions.length > currentQuestionIndex){
         selectedAnswer = false;
         answeredQuestion = false;
-        checkButton.classList.remove('hide');
+        checkButton.classList.add('hide');
+        nextButton.classList.add('hide')
         setNextQuestion();
     }
     else{
@@ -58,7 +62,7 @@ nextButton.addEventListener('click', () => {
         mainPage.classList.add('hide');
         endPage.classList.remove('hide');
         checkButton.classList.remove('hide');
-        restartButton.innerText = 'Restart';
+        
         restartButton.classList.remove('hide');
         resultsElement.classList.remove('hide');
         resultsButton.classList.remove('hide');
@@ -77,6 +81,7 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame(){
+    checkButton.classList.add('hide');
     quizTitleElement.classList.add("hide");
     initialPage.classList.add('hide');
     initialPage.classList.remove('container');
@@ -99,7 +104,6 @@ function getResults(){
     endPage.classList.add('hide');
     mainPage.classList.add('hide');
     finalResults.classList.remove('hide');
-
 }
 
 function returnToEndPage(){
@@ -112,10 +116,13 @@ function setNextQuestion(){
     scoreTitleElement.classList.remove('hide');
     resetState();
     showQuestion(questions[currentQuestionIndex]);
+
+    progressBarFull.style.width = `${((currentQuestionIndex)/totalQuestions) * 100}%`
 }
 
 function showQuestion(question){
-    questionsLeftElement.innerText = (currentQuestionIndex + 1) + "/" + totalQuestions + " questions";
+    progressText.innerText = "Question " + (currentQuestionIndex + 1) + " of " + totalQuestions;
+    questionsLeftElement.innerText = "Question " + (currentQuestionIndex + 1) + " of " + totalQuestions;
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
         const button = document.createElement('button');
@@ -161,6 +168,7 @@ function selectAnswer(){
 
 function markAnswer(e){
     if(!answeredQuestion){
+        checkButton.classList.remove('hide');
         const selectedButton = e.target;
         Array.from(answerButtonsElement.children).forEach(button => {
             if(selectedButton==button){
