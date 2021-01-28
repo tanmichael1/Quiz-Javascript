@@ -15,14 +15,13 @@ const finalResults = document.getElementById('new-results');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
-const resultsElement = document.getElementById('results');
+
 
 const scoreElement = document.getElementById('score');
-const scoreTitleElement = document.getElementById('score-title');
 const quizTitleElement = document.getElementById('quiz-title');
 
+//Progress
 const progressText = document.getElementById('progressText');
-
 const progressBarFull = document.getElementById('progressBarFull');
 
 //results
@@ -45,7 +44,6 @@ restartButton.addEventListener('click', startGame);
 resultsButton.addEventListener('click', getResults);
 toEndPageButton.addEventListener('click', returnToEndPage);
 checkButton.addEventListener('click', selectAnswer);
-
 nextButton.addEventListener('click', () => {
     if(questions.length > currentQuestionIndex){
         selectedAnswer = false;
@@ -62,21 +60,16 @@ nextButton.addEventListener('click', () => {
         checkButton.classList.remove('hide');
         
         restartButton.classList.remove('hide');
-        resultsElement.classList.remove('hide');
+
         resultsButton.classList.remove('hide');
 
         totalQuestionsTable.innerText = totalQuestions;
         totalCorrectTable.innerText = currentScore;
         totalIncorrectTable.innerText = totalQuestions - currentScore;
         percentageTable.innerText = Number(Number(currentScore).toFixed(2)/Number(totalQuestions).toFixed(2)).toFixed(2) * 100 + "%";
-        totalScoreTable.innerText = currentScore + "/" + totalQuestions;
-
-
-   
-        
-    }
-    
-})
+        totalScoreTable.innerText = currentScore + "/" + totalQuestions;        
+    } 
+});
 
 function startGame(){
     checkButton.classList.add('hide');
@@ -89,7 +82,6 @@ function startGame(){
     mainPage.classList.remove('hide');
     startButton.classList.add('hide');
     restartButton.classList.add('hide');
-    resultsElement.classList.add('hide');
     currentQuestionIndex = 0;
     totalQuestions = questions.length;
     questionContainerElement.classList.remove('hide');
@@ -111,7 +103,6 @@ function returnToEndPage(){
 }
 
 function setNextQuestion(){
-    scoreTitleElement.classList.remove('hide');
     resetState();
     showQuestion(questions[currentQuestionIndex]);
 
@@ -196,13 +187,11 @@ function setStatusClass(element, correct){
 function setStatusClassCheck(element, correct){
     clearStatusClass(element);
     if(correct){
-        element.classList.add('correct');
         currentScore++;
         scoreElement.innerText = currentScore + "/" + totalQuestions;
     }
 
     else{
-        element.classList.add('wrong');
         
     }
 }
@@ -212,28 +201,81 @@ function clearStatusClass(element){
     element.classList.remove('wrong');
 }
 
+// const questions = [
+//     {
+//         question: 'What is 2 + 2?',
+//         answers: [
+//             { text: '4', correct: true},
+//             { text: '22', correct: false}
+//         ]
+//     },
+//     {
+//         question: 'Is web development fun?',
+//         answers: [
+//             { text: 'Kinda', correct: false },
+//             { text: 'YES!!', correct: true },
+//             { text: 'Um no', correct: false },
+//             { text: 'IDK', correct: false }
+//         ]
+//     },
+//     {
+//         question: 'Is the earth flat?',
+//         answers: [
+//             { text: 'Yes', correct: false },
+//             { text: 'No!', correct: true },
+     
+//         ]
+//     }
+// ]
+
 const questions = [
     {
-        question: 'What is 2 + 2?',
+        question: 'What is 3/5 of 100',
         answers: [
-            { text: '4', correct: true},
-            { text: '22', correct: false}
+            { text: '4', correct: false},
+            { text: '5', correct: false},
+            { text: '20', correct: false},
+            { text: '60', correct: true}
         ]
     },
     {
-        question: 'Is web development fun?',
+        question: 'If David’s age is 27 years old in 2011, what was his age in 2003?',
         answers: [
-            { text: 'Kinda', correct: false },
-            { text: 'YES!!', correct: true },
-            { text: 'Um no', correct: false },
-            { text: 'IDK', correct: false }
+            { text: '17 years', correct: false },
+            { text: '37 years', correct: false },
+            { text: '20 years', correct: false },
+            { text: '19 years', correct: true }
         ]
     },
     {
-        question: 'Is the earth flat?',
+        question: 'What is the remainder of 21 divided by 7?',
         answers: [
-            { text: 'Yes', correct: false },
-            { text: 'No!', correct: true },
+            { text: '21', correct: false },
+            { text: '7', correct: false },
+            { text: '1', correct: false },
+            { text: 'None of the above', correct: true }
+     
+        ]
+    },
+
+    {
+        question: 'What is 7% equal to?',
+        answers: [
+            { text: '0.007', correct: false },
+            { text: '0.07', correct: true },
+            { text: '0.7', correct: false },
+            { text: '7', correct: false }
+     
+        ]
+    },
+
+    {
+        question: 'How many years are there in a decade?',
+        answers: [
+            { text: '5', correct: false },
+            { text: '10', correct: true },
+            { text: '15', correct: false },
+            { text: '20', correct: false }
      
         ]
     }

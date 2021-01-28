@@ -173,6 +173,7 @@ body.wrong {
 
 #question {
   margin-left: 10%;
+  margin-right: 7%;
   font-size: 3rem;
 
   font-family: "Poppins", "sans-serif";
@@ -198,7 +199,7 @@ body.wrong {
 
 #title {
   font-weight: bold;
-  font-size: 250%;
+  font-size: 300%;
   font-family: "Poppins", "sans-serif";
 }
 
