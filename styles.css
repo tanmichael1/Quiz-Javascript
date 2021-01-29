@@ -22,12 +22,14 @@ body {
   --hue: var(--hue-neutral);
   padding: 0;
   margin: 0;
+  color: white;
   display: flex;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: hsl(var(--hue), 100%, 20%);
+  /*background-color: hsl(var(--hue), 100%, 20%);*/
+  background-color: rgb(29, 26, 26);
 }
 
 body.correct {
@@ -46,6 +48,7 @@ body.wrong {
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
+  background-color: rgb(29, 26, 26);
 }
 
 .btn-grid {
@@ -199,6 +202,7 @@ body.wrong {
 }
 
 #title {
+  margin-left: 10%;
   font-weight: bold;
   font-size: 300%;
   font-family: "Poppins", "sans-serif";
@@ -243,6 +247,10 @@ body.wrong {
   width: 50%;
   text-align: left;
   font-size: 18px;
+}
+
+td {
+  color: white;
 }
 
 .result-box .btn {
