@@ -5,6 +5,7 @@ const nextButton = document.getElementById('next-btn');
 const checkButton = document.getElementById('check-btn');
 const resultsButton = document.getElementById('results-btn');
 const toEndPageButton = document.getElementById('toEndPage');
+const homeButton = document.getElementById('home-btn');
 
 //Pages
 const initialPage = document.getElementById('initial');
@@ -15,6 +16,7 @@ const finalResults = document.getElementById('new-results');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
+
 
 
 const scoreElement = document.getElementById('score');
@@ -44,6 +46,7 @@ restartButton.addEventListener('click', startGame);
 resultsButton.addEventListener('click', getResults);
 toEndPageButton.addEventListener('click', returnToEndPage);
 checkButton.addEventListener('click', selectAnswer);
+homeButton.addEventListener('click', returnHome);
 nextButton.addEventListener('click', () => {
     if(questions.length > currentQuestionIndex){
         selectedAnswer = false;
@@ -73,14 +76,12 @@ nextButton.addEventListener('click', () => {
 
 function startGame(){
     checkButton.classList.add('hide');
-    quizTitleElement.classList.add("hide");
     initialPage.classList.add('hide');
-    initialPage.classList.remove('container');
+  
     mainPage.classList.add('hide');
     endPage.classList.add('hide');
     finalResults.classList.add('hide');
     mainPage.classList.remove('hide');
-    startButton.classList.add('hide');
     restartButton.classList.add('hide');
     currentQuestionIndex = 0;
     totalQuestions = questions.length;
@@ -100,6 +101,11 @@ function returnToEndPage(){
     endPage.classList.remove('hide');
     finalResults.classList.add('hide');
 
+}
+
+function returnHome(){
+    endPage.classList.add('hide');
+    initialPage.classList.remove('hide');
 }
 
 function setNextQuestion(){
@@ -230,7 +236,7 @@ function clearStatusClass(element){
 
 const questions = [
     {
-        question: 'What is 3/5 of 100',
+        question: 'What is 3/5 of 100?',
         answers: [
             { text: '4', correct: false},
             { text: '5', correct: false},

@@ -138,6 +138,7 @@ body.wrong {
 }
 
 .restart-btn,
+.home-btn,
 .results-btn,
 .toEndPage-btn {
   font-size: 1.5rem;
@@ -258,7 +259,7 @@ body.wrong {
 }
 
 #progressBar {
-  width: 18rem;
+  width: 110%;
   height: 3rem;
   border: 0.2rem solid rgb(11, 223, 36);
   margin-top: 2rem;
