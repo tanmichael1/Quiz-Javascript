@@ -264,13 +264,13 @@ body.wrong {
 }
 
 #progressBar {
-  width: 110%;
+  float: left;
+  width: 10vw;
   height: 3rem;
   border: 0.2rem solid rgb(11, 223, 36);
-  margin-top: 2rem;
+
   border-radius: 50px;
   overflow: hidden;
-  margin-bottom: 10%;
 }
 
 #progressBarFull {
@@ -281,6 +281,8 @@ body.wrong {
 
 .hud-prefix {
   font-size: 1.5rem;
+  display: inline;
+  width: 100%;
 }
 
 .hud-main-text {
@@ -288,7 +290,12 @@ body.wrong {
 }
 
 #hud {
-  display: flex;
+  display: inline-block;
   justify-content: space-between;
   margin-left: 10%;
+}
+#progressText {
+  display: inline;
+  float: left;
+  width: 10vw;
 }
