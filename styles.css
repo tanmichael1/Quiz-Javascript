@@ -6,10 +6,11 @@
 }
 
 :root {
-  --hue-neutral: 200;
+  --hue-neutral: 240;
   --hue-wrong: 0;
-  --hue-mark: 250;
-  --hue-correct: 145;
+  --hue-mark: 200;
+  --hue-correct: 120;
+
   background-color: rgb(29, 26, 26);
 }
 
@@ -87,7 +88,7 @@ body.wrong {
 .question-btn {
   text-align: center;
   margin-left: 10%;
-
+  /*background-color: rgb(18, 93, 255);*/
   margin-bottom: 0.8rem;
   width: 80%;
   --hue: var(--hue-neutral);
@@ -243,14 +244,10 @@ body.wrong {
   border: 1px solid #cccccc;
   padding: 8px 15px;
   font-weight: 500;
-  color: #000000;
+  color: white;
   width: 50%;
   text-align: left;
   font-size: 18px;
-}
-
-td {
-  color: white;
 }
 
 .result-box .btn {
