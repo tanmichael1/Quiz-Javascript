@@ -29,7 +29,6 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  /*background-color: hsl(var(--hue), 100%, 20%);*/
   background-color: rgb(29, 26, 26);
 }
 
@@ -52,12 +51,7 @@ body.wrong {
   background-color: rgb(29, 26, 26);
 }
 
-.btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px;
-  margin: 20px 0;
-}
+/* Buttons */
 
 .btn {
   --hue: var(--hue-neutral);
@@ -76,19 +70,9 @@ body.wrong {
   transform: scale(1.03);
 }
 
-.btn.correct {
-  --hue: var(--hue-correct);
-  color: black;
-}
-
-.btn.wrong {
-  --hue: var(--hue-wrong);
-}
-
 .question-btn {
   text-align: center;
   margin-left: 10%;
-  /*background-color: rgb(18, 93, 255);*/
   margin-bottom: 0.8rem;
   width: 80%;
   --hue: var(--hue-neutral);
@@ -176,31 +160,69 @@ body.wrong {
   position: relative;
 }
 
-#question {
-  margin-left: 10%;
-  margin-right: 7%;
-  font-size: 3rem;
-
-  font-family: "Poppins", "sans-serif";
-}
-
-#question-container {
-  justify-content: center;
-}
-
-#controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 10%;
-}
-
 .hide {
   display: none;
 }
 
-.result {
+/* Initial Page */
+
+#initial {
+  padding: 10% 10%;
+  align-items: center;
+  text-align: center;
+}
+
+#title-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 30%;
+}
+
+/* Main Page */
+
+#progressBar {
+  float: right;
+  width: 40%;
+  height: 2rem;
+  border: 0.2rem solid rgb(11, 223, 36);
+
+  margin-right: 11%;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+#progressBarFull {
+  height: 100%;
+  background: rgb(11, 223, 36);
+  width: 0%;
+}
+
+.hud-prefix {
+  font-size: 1rem;
+  display: inline;
   width: 100%;
+}
+
+#hud {
+  justify-content: space-between;
+  padding-left: 10%;
+  float: left;
+  width: 100%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+#progressText {
+  display: inline;
+  float: left;
+  width: 20%;
+}
+
+#footer {
+  padding-bottom: 5%;
+  padding-top: 3%;
 }
 
 #title {
@@ -210,21 +232,33 @@ body.wrong {
   font-family: "Poppins", "sans-serif";
 }
 
-#title-section {
+#question {
+  margin-left: 10%;
+  margin-right: 7%;
+  font-size: 3rem;
+  font-family: "Poppins", "sans-serif";
+}
+
+#question-container {
+  justify-content: center;
+  padding-bottom: 2%;
+}
+
+#controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-
-  top: 30%;
+  margin-left: 10%;
 }
 
-#initial {
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+/* End Page */
+
+#end {
+  text-align: center;
+  padding-bottom: 2%;
 }
+
+/* Result Page */
 
 .result-box {
   text-align: center;
@@ -253,60 +287,4 @@ body.wrong {
 
 .result-box .btn {
   margin-right: 20px;
-}
-
-#end {
-  text-align: center;
-  width: 100%;
-}
-
-#mainPage {
-  /*text-align: center;*/
-}
-
-#progressBar {
-  float: right;
-  width: 40%;
-  height: 2rem;
-  border: 0.2rem solid rgb(11, 223, 36);
-  /* margin-left: 20%; */
-  margin-right: 11%;
-  border-radius: 50px;
-  overflow: hidden;
-}
-
-#progressBarFull {
-  height: 100%;
-  background: rgb(11, 223, 36);
-  width: 0%;
-}
-
-.hud-prefix {
-  font-size: 1rem;
-  display: inline;
-  width: 100%;
-}
-
-.hud-main-text {
-  text-align: center;
-}
-
-#hud {
-  justify-content: space-between;
-  padding-left: 10%;
-  /* margin-right: 10%; */
-  float: left;
-  width: 100%;
-  /* width: 100vw; */
-  padding-bottom: 3%;
-  padding-top: 3%;
-}
-#progressText {
-  display: inline;
-  float: left;
-  width: 20%;
-}
-
-#control-buttons {
-  /* margin-left: 5%; */
 }
