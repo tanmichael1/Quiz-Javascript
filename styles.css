@@ -257,6 +257,7 @@ body.wrong {
 
 #end {
   text-align: center;
+  width: 100%;
 }
 
 #mainPage {
@@ -264,11 +265,12 @@ body.wrong {
 }
 
 #progressBar {
-  float: left;
-  width: 10vw;
+  float: right;
+  width: 40%;
   height: 2rem;
   border: 0.2rem solid rgb(11, 223, 36);
-
+  /* margin-left: 20%; */
+  margin-right: 11%;
   border-radius: 50px;
   overflow: hidden;
 }
@@ -291,18 +293,20 @@ body.wrong {
 
 #hud {
   justify-content: space-between;
-  margin-left: 10%;
+  padding-left: 10%;
+  /* margin-right: 10%; */
   float: left;
-  width: 100vw;
+  width: 100%;
+  /* width: 100vw; */
   padding-bottom: 3%;
   padding-top: 3%;
 }
 #progressText {
   display: inline;
   float: left;
-  width: 10vw;
+  width: 20%;
 }
 
 #control-buttons {
-  margin-left: 5%;
+  /* margin-left: 5%; */
 }
