@@ -19,6 +19,17 @@
   font-family: "Nova Square", cursive;
 }
 
+h1 {
+  font-size: 3vw;
+  font-weight: bold;
+
+  font-family: "Poppins", "sans-serif";
+}
+
+p {
+  font-size: 2vw;
+}
+
 body {
   --hue: var(--hue-neutral);
   padding: 0;
@@ -227,15 +238,12 @@ body.wrong {
 
 #title {
   margin-left: 10%;
-  font-weight: bold;
-  font-size: 300%;
-  font-family: "Poppins", "sans-serif";
 }
 
 #question {
   margin-left: 10%;
   margin-right: 7%;
-  font-size: 3rem;
+
   font-family: "Poppins", "sans-serif";
 }
 
@@ -255,18 +263,14 @@ body.wrong {
 
 #end {
   text-align: center;
-  padding-bottom: 2%;
+  font-size: 2.5vw;
 }
 
 /* Result Page */
 
 .result-box {
   text-align: center;
-}
-
-.result-box h1 {
-  font-size: 36px;
-  line-height: 42px;
+  padding-bottom: 2%;
 }
 
 .result-box table {
