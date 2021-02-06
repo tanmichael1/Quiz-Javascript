@@ -38,7 +38,6 @@ let totalQuestions = 0;
 let currentScore = 0;
 let selectedAnswer = false;
 let answeredQuestion = false;
-
 let breakdownTable = document.getElementById('breakdown');
 
  
@@ -170,8 +169,7 @@ function selectAnswer(){
             setStatusClass(button, button.dataset.correct);
         });
         nextButton.classList.remove('hide');
-        //here
-        //var tbody = document.getElementById("tbody");
+
         var newRow = breakdownTable.insertRow();
 
         var questionCell = newRow.insertCell();
@@ -185,10 +183,20 @@ function selectAnswer(){
         var trueAnswerCell = newRow.insertCell();
         var newText3 = document.createTextNode(correctAnswer);
         trueAnswerCell.appendChild(newText3);
+        if(currentSelectedButton.innerText ==correctAnswer){
+            questionCell.style.backgroundColor = "green";
+            yourAnswerCell.style.backgroundColor = "green";
+            trueAnswerCell.style.backgroundColor = "green";
+        }
+
+        else{
+            questionCell.style.backgroundColor = "red";
+            yourAnswerCell.style.backgroundColor = "red";
+            trueAnswerCell.style.backgroundColor = "red";
+        }
 
         answeredQuestion = true;
 
-        
         
     }  
 }
@@ -318,15 +326,5 @@ const questions = [
             { text: '20', correct: false }
      
         ]
-    }
-]
-
-let results = [
-    {
-        question: 'What is 3/5 of 100?',
-        correct: true,
-        userAnswer: '60',
-        answer: '60'
-        
     }
 ]
