@@ -12,7 +12,7 @@ This project was created with:
 
 ## To-do list
 
-- Change Font
+- Change Font: DONE
 - Text dynamically changes with window size: DONE
 - Breakdown of answers in results
 - Give ability to choose different themed questions in home screen

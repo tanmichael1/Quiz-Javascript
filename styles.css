@@ -292,3 +292,7 @@ body.wrong {
 .result-box .btn {
   margin-right: 20px;
 }
+
+#breakdown {
+  table-layout: fixed;
+}

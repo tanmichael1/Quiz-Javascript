@@ -17,8 +17,6 @@ const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
-
-
 const scoreElement = document.getElementById('score');
 const quizTitleElement = document.getElementById('quiz-title');
 
@@ -34,11 +32,14 @@ let percentageTable = document.getElementById("percentage");
 let totalScoreTable = document.getElementById("total-score");
 
 let currentQuestionIndex, currentSelectedButton;
+let correctAnswer;
 
 let totalQuestions = 0;
 let currentScore = 0;
 let selectedAnswer = false;
 let answeredQuestion = false;
+
+let breakdownTable = document.getElementById('breakdown');
 
  
 startButton.addEventListener('click', startGame);
@@ -75,6 +76,7 @@ nextButton.addEventListener('click', () => {
 });
 
 function startGame(){
+    resetBreakdown();
     checkButton.classList.add('hide');
     initialPage.classList.add('hide');
   
@@ -91,10 +93,20 @@ function startGame(){
 
 }
 
+function resetBreakdown(){
+    var rowCount = breakdownTable.rows.length;
+        for (var i = rowCount - 1; i > 0; i--) {
+            breakdownTable.deleteRow(i);
+        }
+        console.log(breakdownTable.rows.length);
+}
+
 function getResults(){
     endPage.classList.add('hide');
     mainPage.classList.add('hide');
     finalResults.classList.remove('hide');
+    
+    
 }
 
 function returnToEndPage(){
@@ -104,6 +116,7 @@ function returnToEndPage(){
 }
 
 function returnHome(){
+    resetBreakdown();
     endPage.classList.add('hide');
     initialPage.classList.remove('hide');
 }
@@ -148,6 +161,7 @@ function resetState(){
 
 function selectAnswer(){
     if(selectedAnswer){
+      
         checkButton.classList.add('hide');
         currentSelectedButton.classList.remove('marked');
         const correct = currentSelectedButton.dataset.correct;
@@ -155,8 +169,27 @@ function selectAnswer(){
         Array.from(answerButtonsElement.children).forEach(button => {
             setStatusClass(button, button.dataset.correct);
         });
-        answeredQuestion = true;
         nextButton.classList.remove('hide');
+        //here
+        //var tbody = document.getElementById("tbody");
+        var newRow = breakdownTable.insertRow();
+
+        var questionCell = newRow.insertCell();
+        var newText1 = document.createTextNode(questionElement.innerText);
+        questionCell.appendChild(newText1);
+        
+        var yourAnswerCell = newRow.insertCell();
+        var newText2 = document.createTextNode(currentSelectedButton.innerText);
+        yourAnswerCell.appendChild(newText2);
+
+        var trueAnswerCell = newRow.insertCell();
+        var newText3 = document.createTextNode(correctAnswer);
+        trueAnswerCell.appendChild(newText3);
+
+        answeredQuestion = true;
+
+        
+        
     }  
 }
 
@@ -183,6 +216,7 @@ function setStatusClass(element, correct){
     clearStatusClass(element);
     if(correct){
         element.classList.add('correct');   
+        correctAnswer = element.innerText;
     }
 
     else{
@@ -284,5 +318,15 @@ const questions = [
             { text: '20', correct: false }
      
         ]
+    }
+]
+
+let results = [
+    {
+        question: 'What is 3/5 of 100?',
+        correct: true,
+        userAnswer: '60',
+        answer: '60'
+        
     }
 ]
