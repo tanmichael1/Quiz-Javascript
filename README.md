@@ -15,4 +15,4 @@ This project was created with:
 - Change Font: DONE
 - Text dynamically changes with window size: DONE
 - Breakdown of answers in results: DONE
-- Give ability to choose different themed questions in home screen
+- Give ability to choose different themed questions in home screen: DONE

@@ -33,6 +33,7 @@ let totalScoreTable = document.getElementById("total-score");
 
 let currentQuestionIndex, currentSelectedButton;
 let correctAnswer;
+let questions;
 
 let totalQuestions = 0;
 let currentScore = 0;
@@ -74,7 +75,23 @@ nextButton.addEventListener('click', () => {
     } 
 });
 
+function setQuestions(){
+    var e = document.getElementById("selectQuestions");
+    var topic = e.value;
+    if(topic == "maths"){
+        questions = questionsMaths;
+
+    }
+
+    else if(topic == "animals"){
+        questions = questionsAnimals;
+
+    }
+
+}
+
 function startGame(){
+    setQuestions()
     resetBreakdown();
     checkButton.classList.add('hide');
     initialPage.classList.add('hide');
@@ -276,7 +293,9 @@ function clearStatusClass(element){
 //     }
 // ]
 
-const questions = [
+
+
+const questionsMaths = [
     {
         question: 'What is 3/5 of 100?',
         answers: [
@@ -324,6 +343,92 @@ const questions = [
             { text: '10', correct: true },
             { text: '15', correct: false },
             { text: '20', correct: false }
+     
+        ]
+    }
+]
+
+const questionsAnimals = [
+    {
+        question: 'What is a group of owls called?',
+        answers: [
+            { text: 'An Army', correct: false},
+            { text: 'A Bewilderment', correct: false},
+            { text: 'A Parliament', correct: true},
+            { text: 'A Surprise', correct: false}
+        ]
+    },
+    {
+        question: 'How many arms do octopuses have?',
+        answers: [
+            { text: '8', correct: true },
+            { text: '10', correct: false },
+            { text: '12', correct: false },
+            { text: '20', correct: false }
+        ]
+    },
+    {
+        question: 'Which of these animals uses echolocation to navigate?',
+        answers: [
+            { text: 'Dolphins', correct: true },
+            { text: 'Mice', correct: false },
+            { text: 'Pigs', correct: false },
+            { text: 'Naked mole rats', correct: false }
+     
+        ]
+    },
+
+    {
+        question: 'What existing bird has the largest wingspan?',
+        answers: [
+            { text: 'Stork', correct: false },
+            { text: 'Swan', correct: false },
+            { text: 'Condor', correct: false },
+            { text: 'Albatross', correct: true }
+     
+        ]
+    },
+
+    {
+        question: 'What is the biggest animal that has ever lived?',
+        answers: [
+            { text: 'Blue whale', correct: true },
+            { text: 'African elephant', correct: false },
+            { text: 'Apatosaurus (aka Brontosaurus)', correct: false },
+            { text: 'Spinosaurus', correct: false }
+     
+        ]
+    },
+
+    {
+        question: 'What are female elephants called?',
+        answers: [
+            { text: 'Mare Elephants', correct: false },
+            { text: 'Sow Elephants', correct: false },
+            { text: 'Cow Elephants', correct: true },
+            { text: 'Dam Elephants', correct: false }
+     
+        ]
+    },
+
+    {
+        question: 'What is the fastest water animal?',
+        answers: [
+            { text: 'Porpoise', correct: false },
+            { text: 'Sailfish', correct: true },
+            { text: 'Flying fish', correct: false },
+            { text: 'Tuna', correct: false }
+     
+        ]
+    },
+
+    {
+        question: 'Which of the following animals sleeps standing up?',
+        answers: [
+            { text: 'Gorillas', correct: false },
+            { text: 'Flamingos', correct: true },
+            { text: 'Hedgehogs', correct: false },
+            { text: 'Ravens', correct: false }
      
         ]
     }
