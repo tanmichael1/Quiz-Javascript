@@ -6,12 +6,13 @@
 }
 
 :root {
-  --hue-neutral: 240;
+  --hue-neutral: 252.8;
   --hue-wrong: 0;
   --hue-mark: 200;
   --hue-correct: 120;
-
   background-color: rgb(29, 26, 26);
+  color: rgb(185, 185, 185);
+  background: black url("images/background.jpg") no-repeat fixed center;
 }
 
 * {
@@ -22,25 +23,29 @@
 h1 {
   font-size: 3vw;
   font-weight: bold;
-
+  color: rgb(185, 185, 185);
   font-family: "Poppins", "sans-serif";
 }
 
 p {
   font-size: 2vw;
+  color: rgb(185, 185, 185);
+}
+
+.neutral {
+  background-color: rgb(49, 66, 221);
 }
 
 body {
   --hue: var(--hue-neutral);
   padding: 0;
   margin: 0;
-  color: white;
+  color: rgb(185, 185, 185);
   display: flex;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: rgb(29, 26, 26);
 }
 
 body.correct {
@@ -53,12 +58,11 @@ body.wrong {
 
 .container {
   width: 50%;
-
   max-width: 80%;
-  background-color: white;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
+  color: rgb(185, 185, 185);
   background-color: rgb(29, 26, 26);
 }
 
@@ -71,8 +75,8 @@ body.wrong {
   border-radius: 5px;
   padding: 5px 10px;
   text-align: center;
-  color: white;
   outline: none;
+  color: rgb(185, 185, 185);
 }
 
 .btn:hover {
@@ -163,9 +167,7 @@ body.wrong {
 
 .start-btn {
   font-size: 1.5rem;
-
   padding: 10px 20px;
-
   justify-content: center;
   align-items: center;
   position: relative;
@@ -197,7 +199,7 @@ body.wrong {
   float: right;
   width: 40%;
   height: 2rem;
-  border: 0.2rem solid rgb(11, 223, 36);
+  border: 0.2rem solid rgb(8, 145, 24);
 
   margin-right: 11%;
   border-radius: 50px;
@@ -206,7 +208,7 @@ body.wrong {
 
 #progressBarFull {
   height: 100%;
-  background: rgb(11, 223, 36);
+  background: rgb(8, 145, 24);
   width: 0%;
 }
 
@@ -229,6 +231,7 @@ body.wrong {
   display: inline;
   float: left;
   width: 20%;
+  color: rgb(185, 185, 185);
 }
 
 #footer {
@@ -295,4 +298,8 @@ body.wrong {
 
 #breakdown {
   table-layout: fixed;
+}
+
+#new-results {
+  height: 85%;
 }

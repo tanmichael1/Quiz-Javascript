@@ -266,35 +266,6 @@ function clearStatusClass(element){
     element.classList.remove('wrong');
 }
 
-// const questions = [
-//     {
-//         question: 'What is 2 + 2?',
-//         answers: [
-//             { text: '4', correct: true},
-//             { text: '22', correct: false}
-//         ]
-//     },
-//     {
-//         question: 'Is web development fun?',
-//         answers: [
-//             { text: 'Kinda', correct: false },
-//             { text: 'YES!!', correct: true },
-//             { text: 'Um no', correct: false },
-//             { text: 'IDK', correct: false }
-//         ]
-//     },
-//     {
-//         question: 'Is the earth flat?',
-//         answers: [
-//             { text: 'Yes', correct: false },
-//             { text: 'No!', correct: true },
-     
-//         ]
-//     }
-// ]
-
-
-
 const questionsMaths = [
     {
         question: 'What is 3/5 of 100?',
