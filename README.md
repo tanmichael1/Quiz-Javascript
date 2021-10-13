@@ -1,18 +1,19 @@
-# Quiz-Javascript
+# Quiz: JavaScript - Overview
 
-## Project Description and Technologies
+This is my base level attempt of a quiz app/website. It works locally and uses the questions in the JavaScript code.
 
-This is my base level attempt of a quiz app/website. It works locally and uses the questions in the javascript code.
+This project was created with HTML, CSS and JavaScript.
 
-This project was created with:
+## Installation
 
-- HTML
-- CSS
-- JavaScript
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## To-do list
+It requires [NPM](https://docs.npmjs.com/) to be installed.
 
-- Change Font: DONE
-- Text dynamically changes with window size: DONE
-- Breakdown of answers in results: DONE
-- Give ability to choose different themed questions in home screen: DONE
+    git clone https://github.com/tanmichael1/Quiz-Javascript.git
+    cd quiz
+    npm install
+
+## Usage
+
+    npm start
